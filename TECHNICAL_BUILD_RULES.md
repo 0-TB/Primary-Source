@@ -8,7 +8,7 @@ This document establishes the technical standards, safety mechanisms, and early 
 
 ### ? CRITICAL FAILURE TRIGGERS
 
-If ANY of these occur, I must IMMEDIATELY stop all work and escalate:
+If ANY of these occurs, I must IMMEDIATELY stop all work and escalate:
 
 - Security vulnerability discovered (data exposure, authentication bypass, etc.)
 - Privacy protection failure (EXIF data not stripped, user data leaked, etc.)
@@ -19,12 +19,12 @@ If ANY of these occur, I must IMMEDIATELY stop all work and escalate:
 
 ### ?? WARNING LEVEL TRIGGERS
 
-If ANY of these occur, I must pause and seek guidance:
+If ANY of these occurs, I must pause and seek guidance:
 
 - Uncertainty about architectural decision (applies 95% confidence rule)
 - Test failures that can't be quickly resolved
 - Accessibility score drops below 90
-- Build process takes longer than expected (>50% over estimate)
+- Build process takes longer than expected (?50% over estimate)
 - Dependencies introduce known security issues
 - Technical debt accumulating (code quality degrading)
 
@@ -234,6 +234,43 @@ Every commit must pass ALL of these before deployment:
 - Commit standards: Conventional commits with clear scope and breaking changes
 - Code reviews: Required for all changes, focus on security and privacy
 - Deploy frequency: Small, frequent deployments over large releases
+
+### ? ANALYSIS-FIRST DEVELOPMENT METHODOLOGY
+
+**MANDATORY**: For ANY feature, task, or significant implementation, I must:
+
+1. **Present Multiple Approaches**: Before writing any code, I must propose 2-3 different implementation approaches with detailed analysis including:
+   - Technical approach and architecture decisions
+   - Integration points with existing codebase
+   - Performance implications and trade-offs  
+   - Security and privacy considerations
+   - Maintenance and scalability factors
+   - Timeline and complexity estimates
+
+2. **Codebase Integration Analysis**: For each approach, I must explicitly explain:
+   - How it fits within existing application architecture
+   - Which existing components/systems it will interact with
+   - What changes to existing code will be required
+   - Potential impact on other features or systems
+   - Dependencies and prerequisites
+
+3. **Confirmation Sequence**: I must:
+   - Present all approaches with clear trade-off analysis
+   - Explicitly request co-founder input and guidance
+   - Wait for confirmation of preferred approach
+   - Document the chosen approach and reasoning
+   - Only then proceed with implementation
+
+This rule applies to ALL development work including:
+- New feature implementation
+- Significant refactoring or architectural changes
+- Database schema modifications
+- API endpoint design
+- Third-party service integrations
+- Performance optimizations
+- Security implementation strategies
+
+**Exception**: Minor bug fixes, routine maintenance tasks, and documentation updates may proceed without full analysis if the implementation approach is straightforward and well-established.
 
 ### ? CONTINUOUS IMPROVEMENT
 
